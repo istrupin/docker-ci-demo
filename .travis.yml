@@ -11,6 +11,7 @@ script:
 deploy:
   provider: script
   script: git fetch --unshallow && git push https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git HEAD:refs/heads/master
-  on: master
+  on: 
+    branch: master
   verbose: true
   skip_cleanup: true
