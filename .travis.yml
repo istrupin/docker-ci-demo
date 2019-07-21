@@ -7,3 +7,7 @@ before_install:
 
 script:
   - docker run -e CI=true istrupin/docker-compose-demo npm run test
+
+deploy:
+  provider: azure_web_apps
+  verbose: true
