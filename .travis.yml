@@ -9,9 +9,6 @@ script:
   - docker run -e CI=true istrupin/docker-compose-demo npm run test
 
 deploy:
-  provider: script
-  script: git fetch --depth=10000 && git push https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git HEAD:refs/heads/master
-  on: 
-    branch: master
+  provider: azure_web_apps
   verbose: true
   skip_cleanup: true
