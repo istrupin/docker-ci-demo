@@ -8,8 +8,8 @@ before_install:
 script:
   - docker run -e CI=true istrupin/docker-compose-demo npm run test
 
-after_success:
-  - docker bulid -t istrupin/docker-ci .
+# after_success:
+#   - docker bulid -t istrupin/docker-ci .
 
 deploy:
   provider: script
