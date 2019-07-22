@@ -9,9 +9,9 @@ script:
   - docker run -e CI=true istrupin/docker-compose-demo npm run test
 
 deploy:
-  provider: azure_web_apps
-  username: $AZURE_WA_USERNAME
-  password: $AZURE_WA_PASSWORD
-  site: $AZURE_WA_SITE
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
   verbose: true
   skip_cleanup: true
