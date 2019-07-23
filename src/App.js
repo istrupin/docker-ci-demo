@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello there!  This got updated via CI!
+          Hello there!  This got updated via travis CI script deploy!
         </p>
         <a
           className="App-link"
