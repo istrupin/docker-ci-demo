@@ -8,15 +8,14 @@ before_install:
 script:
   - docker run -e CI=true istrupin/docker-compose-demo npm run test
 
-after_success:
-  - docker build -t istrupin/docker-ci .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push istrupin/docker-ci
+# after_success:
+#   - docker build -t istrupin/docker-ci .
+#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#   - docker push istrupin/docker-ci
 
-# deploy:
-#   provider: script
-#   script: bash docker_push
-#   on:
-#     branch: master
-#   verbose: true
-#   skip_cleanup: true
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
+  verbose: true
